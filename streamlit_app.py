@@ -26,3 +26,5 @@ streamlit.write('User entered ' + fruit)
 fr_resp = requests.get("https://www.fruityvice.com/api/fruit/" + fruit)
 fr_resp_norm = pandas.json_normalize(fr_resp.json())
 streamlit.dataframe(fr_resp_norm)
+
+import snowflake.connector
