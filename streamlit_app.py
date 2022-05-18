@@ -21,6 +21,8 @@ streamlit.dataframe(fruits_to_show)
 
 streamlit.header('🍌🥭 Fruityvice Fruit Advice 🥝🍇')
 import requests
-fr_resp = requests.get("https://www.fruityvice.com/api/fruit/watermelon")
+fruit = streamlit.text_input('Select a fruit to get info about', 'kiwi')
+streamlit.write('User entered ' + fruit)
+fr_resp = requests.get("https://www.fruityvice.com/api/fruit/" + fruit)
 fr_resp_norm = pandas.json_normalize(fr_resp.json())
 streamlit.dataframe(fr_resp_norm)
